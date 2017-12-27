@@ -1,1 +1,1 @@
-test ssh
+test ssh git
