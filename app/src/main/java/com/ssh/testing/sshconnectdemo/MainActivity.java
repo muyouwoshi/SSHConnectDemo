@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -52,10 +53,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void upload(View view) {
+        Log.e("upUtil: ",""+ (upUtil == upUtil1) );
         String path = Environment.getExternalStorageDirectory().getAbsoluteFile() + "/vivo1.2.78.622问题图片/Anna.zip";
         String path1 = Environment.getExternalStorageDirectory().getAbsoluteFile() + "/vivo1.2.78.622问题图片/ANDREY.zip";
-        SftpConnectionMgr.getInstance().upload("/home/zhoujie/test", path, upUtil);
-        SftpConnectionMgr.getInstance().upload("/home/zhoujie/test", path1, upUtil1);
+        SftpConnectionMgr.getInstance().upload("/unsullied/sharefs/zhoujie/face_unlock/test", path, upUtil);
+        SftpConnectionMgr.getInstance().upload("/unsullied/sharefs/zhoujie/face_unlock/test", path1, upUtil);
     }
 
     public void download(View view) {

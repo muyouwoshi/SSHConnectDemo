@@ -105,15 +105,18 @@ public class SftpUtil {
      * @param uploadFile 要上传的文件
      */
     public void upload(String directory, String uploadFile) throws Exception {
+        Log.e("upload: ",Thread.currentThread().getName() );
         mkdir(directory);
-        ChannelSftp channel = (ChannelSftp) sshSession.openChannel("sftp"); // 打开SFTP通道
-        channel.connect(channelTimeout); // 建立SFTP通道的连接
+//        ChannelSftp channel = (ChannelSftp) sshSession.openChannel("sftp"); // 打开SFTP通道
+//        channel.connect(channelTimeout); // 建立SFTP通道的连接
         if (channel.isConnected()) {
+            Log.e("upload run: ",""+channel.hashCode() );
             channel.cd(directory);
             File file = new File(uploadFile);
             channel.put(new FileInputStream(file), file.getName());
             channel.disconnect();
         }
+        Log.e("upload end: ",Thread.currentThread().getName() );
     }
 
     private synchronized void mkdir(String directory) throws Exception {

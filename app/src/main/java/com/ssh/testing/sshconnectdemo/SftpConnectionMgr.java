@@ -44,7 +44,7 @@ public class SftpConnectionMgr {
                 }
                 observer.onComplete();
             }
-        }.subscribeOn(Schedulers.io()).subscribe(new Consumer<SftpUtil>() {
+        }.subscribeOn(Schedulers.computation()).subscribe(new Consumer<SftpUtil>() {
             @Override
             public void accept(SftpUtil sftpUtil) throws Exception {
                 if (sftpUtil == null) {
